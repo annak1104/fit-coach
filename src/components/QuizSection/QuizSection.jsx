@@ -111,7 +111,7 @@ const QuizSection = () => {
     if (quizCompleted) {
       setTimeout(() => {
         resultsRef.current?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+      }, 500);
     }
   }, [quizCompleted]);
 
