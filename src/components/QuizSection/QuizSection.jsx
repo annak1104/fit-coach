@@ -1,3 +1,5 @@
+import { AnimatePresence, motion } from "framer-motion";
+
 import React, { useEffect, useRef, useState } from "react";
 
 import referral from "../../assets/referral.png";
@@ -11,36 +13,68 @@ const questions = [
   {
     question: "What’s your main fitness goal?",
     options: [
-      "Gain muscle & strength",
-      "Lose fat & get lean",
-      "Improve endurance & overall fitness",
+      { title: "Build muscles", description: "Get strong & fit" },
+      { title: "Lose weight", description: "Get rid of fat & become lean" },
+      { title: "Keep Fit", description: "Improve endurance & overall fitness" },
     ],
   },
   {
     question: "How often do you exercise?",
-    options: ["Never / Rarely", "1-2 times per week", "3+ times per week"],
+    options: [
+      {
+        title: "Rarely",
+        description: "I hardly ever find the time or motivation to exercise",
+      },
+      {
+        title: "Occasionally",
+        description: "I work out once in a while but not on a strict schedule",
+      },
+      {
+        title: "Regularly",
+        description:
+          "I consistently follow a workout routine throughout the week",
+      },
+    ],
   },
   {
     question:
       "Would you be interested in earning money by helping others reach their fitness goals?",
     options: [
-      "Yes, I’d love to inspire and earn!",
-      "Maybe, if it’s easy to do.",
-      "No, I’m just here to focus on my own progress.",
+      { title: "Yes", description: "I’d love to inspire and earn!" },
+      { title: "Maybe", description: "If it’s easy to do so" },
+      { title: "No", description: "I’m just here to focus on my own progress" },
     ],
   },
   {
     question: "Do you often share fitness tips or progress with friends?",
     options: [
-      "Yes, I post my progress online!",
-      "Occasionally, I talk about fitness with friends.",
-      "Not really, I keep it personal.",
+      { title: "Yes", description: "I post my progress online!" },
+      {
+        title: "Occasionally",
+        description: "I talk about fitness with friends.",
+      },
+      { title: "Not really", description: "I keep it personal." },
     ],
   },
   {
     question:
       "How much time can you realistically commit to workouts & sharing your journey?",
-    options: ["2-3 hours per week", "4-5 hours per week", "6+ hours per week"],
+    options: [
+      {
+        title: "2-3 hours per week",
+        description:
+          "I can set aside some time each week for workouts and updates",
+      },
+      {
+        title: "4-5 hours per week",
+        description:
+          "I’m ready to devote more time to training and progress tracking",
+      },
+      {
+        title: "6+ hours per week",
+        description: "I’m all in on rigorous workouts and detailed tracking ",
+      },
+    ],
   },
 ];
 
@@ -50,7 +84,7 @@ const QuizSection = () => {
   const [quizStarted, setQuizStarted] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const quizRef = useRef(null);
-  const resultsRef = useRef(null); // Reference for the results page
+  const resultsRef = useRef(null);
 
   const startQuiz = () => {
     setQuizStarted(true);
@@ -98,22 +132,35 @@ const QuizSection = () => {
         <>
           {/* Hero Section */}
           {!quizStarted && (
-            <section className="relative h-screen bg-cover bg-center bg-[url('./assets/pic3.png')]">
+            <section className="relative h-screen bg-cover bg-center bg-[url('./assets/fitnes.jpg')]">
+              <div className="absolute inset-0 backdrop-blur-sm"></div>
               <div className="relative flex flex-col items-center justify-center h-full text-white px-6">
-                <h1 className="font-montserrat font-bold text-4xl md:text-5xl text-gray-800 mb-6 text-center">
+                <motion.h1
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="font-montserrat font-bold text-4xl md:text-5xl mb-6 text-center"
+                >
                   Transform Your Body & Your Wallet: Get Fit, Inspire Others,
                   and Earn!
-                </h1>
-                <p className="font-open-sans text-lg mb-8 text-center">
+                </motion.h1>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="font-open-sans text-lg mb-8 text-center"
+                >
                   Take this quick quiz to find the perfect workout & learn how
                   you can make money by sharing your journey.
-                </p>
-                <button
+                </motion.p>
+                <motion.button
                   onClick={startQuiz}
-                  className="bg-[#43A047] text-white font-montserrat text-lg py-4 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:bg-green-700 active:scale-95"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-[#43A047] text-white font-montserrat text-lg font-bold py-4 px-8 rounded-full transition-all duration-300 ease-in-out"
                 >
                   Start the Quiz!
-                </button>
+                </motion.button>
               </div>
             </section>
           )}
@@ -150,7 +197,7 @@ const QuizSection = () => {
                 Get instant workout updates, nutrition guides, and start earning
                 through referrals!
               </p>
-              <button className="bg-[#FB8C00] text-white font-montserrat text-lg py-4 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:bg-orange-600 active:scale-95">
+              <button className="bg-[#FB8C00] text-white font-montserrat font-bold text-lg py-4 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:bg-orange-600 active:scale-95">
                 Get Telegram
               </button>
             </div>
@@ -158,37 +205,50 @@ const QuizSection = () => {
 
           {/* Quiz Section */}
           {quizStarted && (
-            <div
-              ref={quizRef}
-              className="transition-all ease-in-out duration-700 mt-[-10px] pb-10"
-            >
-              <div className="relative h-screen flex flex-col items-center justify-center bg-white px-6">
-                {/* Progress Bar */}
-                <div className="w-full bg-gray-300 h-2 mb-8">
-                  <div
-                    className="bg-orange-500 h-2 transition-all duration-500 ease-in-out"
-                    style={{ width: `${progress}%` }}
-                  ></div>
+            <div ref={quizRef} className="mt-9 h-screen pb-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="relative flex flex-col items-center justify-center bg-white px-6"
+              >
+                <p className="text-lg font-semibold text-gray-700 mt-9 mb-2">
+                  Step {currentQuestion + 1} of {questions.length}
+                </p>
+                <div className="w-full bg-gray-300 h-2 mb-8 mt-8">
+                  <motion.div
+                    initial={{
+                      width: `${(currentQuestion / questions.length) * 100}%`,
+                    }}
+                    animate={{ width: `${progress}%` }}
+                    transition={{ duration: 0.5 }}
+                    className="bg-orange-500 h-2"
+                  />
                 </div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  {questions[currentQuestion].question}
+                </h2>
 
-                {/* Question */}
-                <div className="text-center">
-                  <h2 className="font-montserrat text-2xl font-bold text-gray-800 mb-6">
-                    {questions[currentQuestion].question}
-                  </h2>
-
-                  {/* Options */}
+                <AnimatePresence mode="sync">
                   {questions[currentQuestion].options.map((option, index) => (
-                    <button
+                    <motion.button
                       key={index}
                       onClick={() => handleAnswer(option)}
-                      className="bg-green-600 w-full text-white font-montserrat text-lg py-3 px-6 rounded-full mb-4 transition duration-300 ease-in-out hover:bg-orange-500"
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="w-full flex flex-col text-left bg-white text-gray-800 font-bold p-4 rounded-lg mb-4 shadow-md transition-all hover:border-green-500 hover:shadow-lg"
                     >
-                      {option}
-                    </button>
+                      <span className="text-lg font-bold">{option.title}</span>
+                      <span className="text-sm text-gray-400">
+                        {option.description}
+                      </span>
+                    </motion.button>
                   ))}
-                </div>
-              </div>
+                </AnimatePresence>
+              </motion.div>
             </div>
           )}
         </>
