@@ -20,7 +20,7 @@ const ResultsPage = ({ answers }) => {
   const userGoal = answers[0].title;
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10 px-4">
+    <div className="bg-gray-100 flex flex-col items-center py-10 px-4">
       <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">
         Your FitCoach Plan: {userGoal} & Make Money While You Train
       </h1>
