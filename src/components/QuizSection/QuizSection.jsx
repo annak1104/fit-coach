@@ -166,46 +166,54 @@ const QuizSection = () => {
           )}
 
           {/* MLM Info Section */}
-          <section className="bg-[#F5F5F5] p-6">
-            <div className="max-w-screen-md mx-auto text-center">
-              <h2 className="font-montserrat text-3xl font-bold text-[#43A047] mb-6">
-                Earn While You Train
-              </h2>
-              <p className="font-roboto text-gray-700 text-lg mb-6">
-                Refer friends & earn commissions as they achieve their fitness
-                goals with you!
-              </p>
-              {/* Add referral network illustration here */}
-              <div className="flex justify-center">
-                <img src={referral} alt="Referral Network" className="w-1/2" />
+          {!quizStarted && (
+            <section className="bg-[#F5F5F5] p-6">
+              <div className="max-w-screen-md mx-auto text-center">
+                <h2 className="font-montserrat text-3xl font-bold text-[#43A047] mb-6">
+                  Earn While You Train
+                </h2>
+                <p className="font-roboto text-gray-700 text-lg mb-6">
+                  Refer friends & earn commissions as they achieve their fitness
+                  goals with you!
+                </p>
+                {/* Add referral network illustration here */}
+                <div className="flex justify-center">
+                  <img
+                    src={referral}
+                    alt="Referral Network"
+                    className="w-1/2"
+                  />
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* Telegram Info Section */}
-          <section className="bg-white p-6">
-            <div className="max-w-screen-md mx-auto text-center">
-              <img
-                src={telegram}
-                className="w-12 h-12 m-auto"
-                alt="Telegram Logo"
-              />
-              <h2 className="font-montserrat text-3xl font-bold text-gray-800 mb-4">
-                You’ll need Telegram
-              </h2>
-              <p className="font-roboto text-gray-700 text-lg mb-6">
-                Get instant workout updates, nutrition guides, and start earning
-                through referrals!
-              </p>
-              <button className="bg-[#FB8C00] text-white font-montserrat font-bold text-lg py-4 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:bg-orange-600 active:scale-95">
-                Get Telegram
-              </button>
-            </div>
-          </section>
+          {!quizStarted && (
+            <section className="bg-white p-6">
+              <div className="max-w-screen-md mx-auto text-center">
+                <img
+                  src={telegram}
+                  className="w-12 h-12 m-auto"
+                  alt="Telegram Logo"
+                />
+                <h2 className="font-montserrat text-3xl font-bold text-gray-800 mb-4">
+                  You’ll need Telegram
+                </h2>
+                <p className="font-roboto text-gray-700 text-lg mb-6">
+                  Get instant workout updates, nutrition guides, and start
+                  earning through referrals!
+                </p>
+                <button className="bg-[#FB8C00] text-white font-montserrat font-bold text-lg py-4 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:bg-orange-600 active:scale-95">
+                  Get Telegram
+                </button>
+              </div>
+            </section>
+          )}
 
           {/* Quiz Section */}
           {quizStarted && (
-            <div ref={quizRef} className="mt-9 h-screen pb-10">
+            <div ref={quizRef} className="pt-16 h-screen pb-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}

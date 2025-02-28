@@ -3,7 +3,7 @@ import telegramIcon from "../../assets/telegram.svg";
 
 const FinalThankYouPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white text-center p-6 shadow-lg">
+    <div className="flex flex-col items-center justify-center bg-white text-center p-6 shadow-lg">
       {/* Motivational Headline */}
       <h1 className="font-montserrat font-bold text-3xl md:text-4xl text-gray-800 mb-6">
         You’re One Step Closer to a Healthier Body & a Bigger Wallet!

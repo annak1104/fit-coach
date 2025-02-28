@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 const earningsData = {
-  2: 1106.83,
-  5: 2767.07,
-  10: 5534.13,
-  20: 11068.26,
+  2: 4.95,
+  5: 9.95,
+  10: 19.95,
+  20: 39.95,
 };
 
 const validRecruits = [2, 5, 10, 20];
@@ -22,7 +22,7 @@ const MLMEarningsSimulator = () => {
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg text-center max-w-md mx-auto">
       <h2 className="font-montserrat text-2xl font-bold mb-4">
-        MLM Earnings Simulator
+        Referral system <br/> Earnings Simulator
       </h2>
       <p className="font-open-sans text-lg text-gray-700 mb-4">
         Adjust the slider to see potential earnings based on your recruits.
@@ -42,6 +42,7 @@ const MLMEarningsSimulator = () => {
       <p className="font-montserrat text-3xl font-bold text-orange-500 mt-4">
         ${earningsData[recruits] || "-"}
       </p>
+      <p className="italic text-gray-400 mt-3 text-xs">Your income is not guaranteed, these are approximate figures.</p>
     </div>
   );
 };
