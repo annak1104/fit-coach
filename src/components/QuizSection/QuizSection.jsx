@@ -2,8 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import React, { useEffect, useRef, useState } from "react";
 
-import logo from "../../assets/logo.svg";
 import logoDark from "../../assets/logo-dark.svg";
+import logo from "../../assets/logo.svg";
 import referral from "../../assets/referral.png";
 import telegram from "../../assets/telegram.svg";
 import FinalThankYouPage from "../../components/FinalThankYouPage/FinalThankYouPage";
@@ -137,7 +137,9 @@ const QuizSection = () => {
             <section className="relative h-screen bg-cover bg-center bg-[url('./assets/fitnes.jpg')]">
               <div className="absolute inset-0 backdrop-blur-sm"></div>
               <div className="relative flex flex-col items-center justify-center h-full text-white px-6">
+                <div className="w-[60%]">
                   <img src={logo} alt="Main-logo" />
+                </div>
                 <motion.h1
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -217,7 +219,9 @@ const QuizSection = () => {
           {/* Quiz Section */}
           {quizStarted && (
             <div ref={quizRef} className="pt-16 h-screen pb-10">
-              <img src={logoDark} alt="Main-logo" />
+              <div className="w-[60%] m-auto">
+                <img src={logoDark} alt="Main-logo" />
+              </div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
