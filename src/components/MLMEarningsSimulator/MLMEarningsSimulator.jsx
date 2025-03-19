@@ -22,7 +22,7 @@ const MLMEarningsSimulator = () => {
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg text-center max-w-md mx-auto">
       <h2 className="font-montserrat text-2xl font-bold mb-4">
-        Referral system <br/> Earnings Simulator
+        Referral system <br /> Earnings Simulator
       </h2>
       <p className="font-open-sans text-lg text-gray-700 mb-4">
         Adjust the slider to see potential earnings based on your recruits.
@@ -42,7 +42,10 @@ const MLMEarningsSimulator = () => {
       <p className="font-montserrat text-3xl font-bold text-orange-500 mt-4">
         ${earningsData[recruits] || "-"}
       </p>
-      <p className="italic text-gray-400 mt-3 text-xs">Your income is not guaranteed, these are approximate figures.</p>
+      <p className="italic text-gray-400 mt-3 text-xs">
+        Disclaimer: Examples only; no earnings guaranteed. Actual results vary
+        based on effort
+      </p>
     </div>
   );
 };
