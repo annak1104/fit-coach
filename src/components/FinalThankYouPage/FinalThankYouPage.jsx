@@ -18,9 +18,7 @@ const FinalThankYouPage = () => {
       <div className="mt-8 flex flex-col items-center">
         <img src={telegramIcon} alt="Telegram Logo" className="w-12 h-12 mb-4" />
         <p className="font-open-sans text-lg text-gray-700 max-w-lg">
-          Stay updated with exclusive fitness & earning tips. Join our Telegram
-          community today and unlock quick payment options for maximum
-          convenience!
+        Join FitCoach on Telegram and access your unique invite link to start referring and earning rewards!
         </p>
       </div>
     </div>
