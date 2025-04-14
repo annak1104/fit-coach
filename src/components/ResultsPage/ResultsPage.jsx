@@ -26,10 +26,13 @@ const ResultsPage = ({ answers }) => {
       </h1>
 
       <div className="max-w-lg w-full flex flex-col gap-6">
-        {/* Workout Plan */}
+        {/* Mindful eating practices */}
         <div className="bg-green-500 text-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-bold">Workout Plan 💪🏻</h2>
-          <p>4-week structured program with guided videos.</p>
+          <h2 className="text-xl font-bold">Mindful eating practices 💪🏻</h2>
+          <p>
+            Addressing emotional triggers, and creating long-term, healthy
+            eating routines.
+          </p>
         </div>
 
         {/* Nutrition Plan */}
@@ -41,7 +44,7 @@ const ResultsPage = ({ answers }) => {
         {/* Progress Tracking */}
         <div className="bg-gray-500 text-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-bold">Progress Tracking 📈</h2>
-          <p>Daily check-ins & expert feedback.</p>
+          <p>Expert feedback</p>
         </div>
       </div>
 
