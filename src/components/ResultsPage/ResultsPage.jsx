@@ -28,7 +28,7 @@ const ResultsPage = ({ answers }) => {
       <div className="max-w-lg w-full flex flex-col gap-6">
         {/* Mindful eating practices */}
         <div className="bg-green-500 text-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-bold">Mindful eating practices 💪🏻</h2>
+          <h2 className="text-xl font-bold">Mindful eating practices 🥗</h2>
           <p>
             Addressing emotional triggers, and creating long-term, healthy
             eating routines.
